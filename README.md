@@ -1,6 +1,3 @@
-## 🎥 Loom Assessment Demo
-
-👉 [Watch the Demo Video](https://www.loom.com/share/80023a6a9fb34a139173b3c593ba723d)
 # ✨ Aurum Extract
 ## Intelligent Document Extraction Engine
 
@@ -21,7 +18,7 @@
 
 | Demo | Link |
 |---|---|
-| Loom Assessment Demo | [Watch Here](https://www.loom.com/share/80023a6a9fb34a139173b3c593ba723d) |
+| Assessment Demo | https://drive.google.com/file/d/1Z9XjeWCDnVi8Vu5X6KBt2IuTTrC6LTRC/view?usp=sharing
 
 ---
 
