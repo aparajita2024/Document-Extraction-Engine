@@ -485,7 +485,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
     st.markdown('<div class="card-header">Extracted Fields</div>', unsafe_allow_html=True)
     for k, v in scalar.items():
         render_field_row(k, v)
-    st.markdown('</div>', unsafe_allow_html=True)
+    
 
     # Skills
     if lists.get("skills"):
@@ -493,7 +493,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
         st.markdown('<div class="card-header">Skills</div>', unsafe_allow_html=True)
         pills = "".join(f'<span class="skill-pill">{s}</span>' for s in lists["skills"])
         st.markdown(f'<div class="skill-wrap">{pills}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     # Experience
     if lists.get("experience"):
@@ -507,7 +507,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
                 <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#93B4E0">{exp.get('duration','')}</span>
                 <span style="font-size:0.8rem;color:#4A6FA5;margin-top:2px">{exp.get('description','')}</span>
             </div>""", unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     # Education
     if lists.get("education"):
@@ -519,7 +519,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
                 <span class="f-key">{edu.get('year','—')}</span>
                 <span class="f-val">{edu.get('degree','—')} — {edu.get('institution','—')}</span>
             </div>""", unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     # Parties (contract)
     if lists.get("parties"):
@@ -532,7 +532,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
                 <span class="f-val">{p.get('name','—')}</span>
                 <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#93B4E0">{p.get('email','')}</span>
             </div>""", unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     # Key findings / recommendations (report)
     for list_key, label in [("key_findings","Key Findings"), ("recommendations","Recommendations")]:
@@ -541,14 +541,14 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
             st.markdown(f'<div class="card-header">{label}</div>', unsafe_allow_html=True)
             for item in lists[list_key]:
                 st.markdown(f'<div class="finding-item"><div class="finding-dot"></div><span>{item}</span></div>', unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+            
 
     # Line items (invoice)
     if lists.get("line_items"):
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="card-header">Line Items</div>', unsafe_allow_html=True)
         st.table(lists["line_items"])
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
     # Edit
     st.markdown('<div class="sec-divider"></div>', unsafe_allow_html=True)
@@ -562,7 +562,7 @@ def render_editable_fields(result, doc_type, extraction_id, prefix=""):
         )
         if new_val != (v.get("value") or ""):
             corrections[k] = new_val
-    st.markdown('</div>', unsafe_allow_html=True)
+    
 
     c1, c2, c3 = st.columns(3)
     with c1:
@@ -593,7 +593,6 @@ tab1, tab2, tab3 = st.tabs(["Extract Document", "Batch Upload", "History"])
 with tab1:
     left, right = st.columns([1, 1], gap="large")
     with left:
-        st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown('<div class="card-header">Document Type</div>', unsafe_allow_html=True)
         doc_type = st.selectbox("", ["invoice", "resume", "contract", "report"],
                                 key="s_type", label_visibility="collapsed",
@@ -607,7 +606,6 @@ with tab1:
         uploaded = st.file_uploader("",
                                     type=["pdf","txt","docx","png","jpg","jpeg"],
                                     key="s_file", label_visibility="collapsed")
-        st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
         extract_clicked = st.button("Extract", type="primary", key="s_btn",
                                     disabled=not uploaded)
