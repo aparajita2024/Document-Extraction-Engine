@@ -179,21 +179,6 @@ Aurum-Extract/
 | Run Backend | `uvicorn main:app --reload` |
 | Run Frontend | `streamlit run app.py` |
 
----
-
-# 🔑 Environment Variables
-
-| Variable | Description |
-|---|---|
-| GEMINI_API_KEY | Gemini API key |
-
-Example:
-
-```env
-GEMINI_API_KEY=your_api_key
-```
-
-
 
 # 📚 Learning Outcomes
 
